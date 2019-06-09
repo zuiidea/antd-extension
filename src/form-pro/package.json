@@ -1,0 +1,16 @@
+{
+  "name": "form-pro",
+  "version": "0.0.1",
+  "description": "Expansion Ant Desgin From Component",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "author": "zuiidea",
+  "dependencies": {
+    "antd": "^3.19.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

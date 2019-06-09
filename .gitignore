@@ -1,0 +1,19 @@
+# General
+node_modules
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+.coverage
+
+# Mac General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Storybook
+build
+
+# Build
+lib
+es

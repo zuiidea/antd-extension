@@ -5,9 +5,26 @@ import { withConsole } from '@storybook/addon-console'
 import FormPro from '../FormPro'
 
 const columns = [
-  { type: 'Input' },
+  { type: 'Input', name: 'name' },
   {
     type: 'Switch',
+    name: 'isMale',
+  },
+  {
+    type: 'Select',
+    name: 'hobby',
+    extraProps: {
+      dataSource: [
+        {
+          key: 'book',
+          value: 'book',
+        },
+        {
+          key: 'music',
+          value: 'music',
+        },
+      ],
+    },
   },
 ]
 

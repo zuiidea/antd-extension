@@ -10,7 +10,7 @@ export interface ISelectDataSourceItem {
   key: string
 }
 
-const config = [
+const options = [
   {
     type: 'Input',
     component: lazy(() => import('./components/Input')),
@@ -22,8 +22,8 @@ const config = [
   {
     type: 'Select',
     component: Select,
-    formItemRender: (itemConfig: any, Select: any) => {
-      const { extraProps = {} } = itemConfig
+    formItemRender: (itemOptions: any, Select: any) => {
+      const { extraProps = {} } = itemOptions
       const { dataSource = [] } = extraProps
 
       return (
@@ -39,6 +39,6 @@ const config = [
   },
 ]
 
-const FormPro = create(config)
+const FormPro = create(options)
 
 export default FormPro

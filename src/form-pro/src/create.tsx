@@ -1,6 +1,6 @@
 import * as React from 'react'
 import 'antd/es/form/style'
-import Form, { FormItemProps } from 'antd/es/form'
+import Form, { FormItemProps, FormProps } from 'antd/es/form'
 import { GetFieldDecoratorOptions } from 'antd/es/form/Form'
 
 const FormItem = Form.Item
@@ -12,32 +12,33 @@ export interface IColumn {
   options?: GetFieldDecoratorOptions
   extraProps?: any
   formItemProps?: FormItemProps
-  formItemRender?: (itemConfig: any, Component: any) => JSX.Element
+  formItemRender?: (itemOptions: any, Component: any) => JSX.Element
 }
 
 export interface IFormProBaseProps {
   columns: IColumn[]
+  formProps?: FormProps
   form: any
 }
 
 export interface IFormProBaseState {}
 
-const create = (config: any[]) => {
+const create = (options: any[]): any => {
   class FormProBase extends PureComponent<
     IFormProBaseProps,
     IFormProBaseState
   > {
     renderFormItem = (item: IColumn, index: number) => {
       const { getFieldDecorator } = this.props.form
-      const { type, name, options, extraProps = {}, formItemProps = {} } = item
+      const { type, name, extraProps = {}, formItemProps = {} } = item
       const { addonBefore, addonAfter } = extraProps
-      const itemConfig = config.find(_ => type === _.type)
-      if (!itemConfig) {
+      const itemOptions = options.find(_ => type === _.type)
+      if (!itemOptions) {
         return null
       }
 
-      const { formItemRender } = itemConfig
-      const FormItemComponent = itemConfig.component
+      const { formItemRender } = itemOptions
+      const FormItemComponent = itemOptions.component
       const formItemContent = formItemRender ? (
         React.cloneElement(
           formItemRender(item, FormItemComponent),
@@ -51,7 +52,7 @@ const create = (config: any[]) => {
         <FormItem key={index}>
           {addonBefore}
           <Suspense fallback={null}>
-            {getFieldDecorator(name, options)(formItemContent)}
+            {getFieldDecorator(name, item.options)(formItemContent)}
           </Suspense>
           {addonAfter}
         </FormItem>
@@ -59,8 +60,8 @@ const create = (config: any[]) => {
     }
 
     render() {
-      const { columns } = this.props
-      return <Form>{columns.map(this.renderFormItem)}</Form>
+      const { columns, formProps } = this.props
+      return <Form {...formProps}>{columns.map(this.renderFormItem)}</Form>
     }
   }
 

@@ -30,4 +30,13 @@ const columns = [
 
 storiesOf('FormPro', module)
   .addDecorator((storyFn, context) => withConsole()(storyFn)(context))
-  .add('Standard FormPro', () => <FormPro columns={columns} />)
+  .add('Standard FormPro', () => (
+    <div style={{ padding: 30 }}>
+      <FormPro
+        columns={columns}
+        formProps={{
+          layout: 'vertical',
+        }}
+      />
+    </div>
+  ))

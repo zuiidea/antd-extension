@@ -46,5 +46,14 @@ module.exports = async ({ config }) => {
     }),
   })
 
+  const babelRule = config.module.rules.find(
+    item => item.loader && item.loader.indexOf('babel-loader') > -1,
+  )
+
+  babelRule.options.plugins.push([
+    require.resolve('babel-plugin-import'),
+    { libraryName: 'antd', style: true },
+  ])
+
   return config
 }

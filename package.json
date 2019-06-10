@@ -2,7 +2,8 @@
   "name": "antd-extension",
   "version": "0.0.1",
   "scripts": {
-    "storybook": "NODE_ENV=development start-storybook -p 9002 --debug-webpack",
+    "storybook": "NODE_ENV=development start-storybook -p 9002",
+    "debug": "NODE_ENV=development start-storybook -p 9002 --debug-webpack",
     "start": "npm run storybook",
     "test": "react-scripts test --env=jsdom",
     "build:cjs": "lerna exec --parallel -- tsc -d --outDir lib -m commonjs",
@@ -26,6 +27,7 @@
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
     "@types/storybook__react": "^4.0.2",
+    "babel-plugin-import": "^1.12.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",

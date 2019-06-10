@@ -1,4 +1,3 @@
-import 'antd/es/input/style'
-import Input from 'antd/es/input'
+import { Input } from 'antd'
 
 export default Input

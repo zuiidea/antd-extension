@@ -1,4 +1,3 @@
-import 'antd/es/switch/style'
-import Switch from 'antd/es/switch'
+import { Switch } from 'antd'
 
 export default Switch

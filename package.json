@@ -11,6 +11,9 @@
     "build": "npm run build:cjs && npm run build:esm",
     "bootstrap": "lerna bootstrap",
     "export-static-storybook": "build-storybook -c .storybook -o build",
+    "lint:ts": "lerna exec --parallel -- tslint src/**/*.ts{,x} --exclude /lib/**/*.ts{,x},es/**/*.ts{,x}",
+    "lint:js": "eslint src/**/*.js",
+    "lint": "npm run lint:ts && npm run lint:js",
     "publish-packages": "lerna publish",
     "prepublish-packages": "npm run build",
     "precommit": "lint-staged"

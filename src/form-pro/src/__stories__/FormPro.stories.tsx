@@ -29,7 +29,7 @@ const columns = [
 ]
 
 storiesOf('FormPro', module)
-  .addDecorator((storyFn, context) => withConsole()(storyFn)(context))
+  .addDecorator((storyFn: any, context: any) => withConsole()(storyFn)(context))
   .add('Standard FormPro', () => (
     <div style={{ padding: 30 }}>
       <FormPro

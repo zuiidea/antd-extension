@@ -45,6 +45,7 @@
     "typescript": "3.4.1"
   },
   "dependencies": {
+    "antd": "^3.19.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

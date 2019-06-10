@@ -16,13 +16,13 @@ export interface IColumn {
 }
 
 export interface IFormProBaseProps {
-  columns: Array<IColumn>
+  columns: IColumn[]
   form: any
 }
 
 export interface IFormProBaseState {}
 
-const create = (config: Array<any>) => {
+const create = (config: any[]) => {
   class FormProBase extends PureComponent<
     IFormProBaseProps,
     IFormProBaseState

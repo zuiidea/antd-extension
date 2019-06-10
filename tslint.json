@@ -2,6 +2,7 @@
   "extends": "tslint-config-airbnb",
   "rules": {
     "semicolon": [true, "never"],
-    "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"]
+    "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"],
+    "import-name": false
   }
 }

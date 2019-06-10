@@ -41,7 +41,7 @@ const create = (config: any[]) => {
       const formItemContent = formItemRender ? (
         React.cloneElement(
           formItemRender(item, FormItemComponent),
-          formItemProps
+          formItemProps,
         )
       ) : (
         <FormItemComponent {...formItemProps} />

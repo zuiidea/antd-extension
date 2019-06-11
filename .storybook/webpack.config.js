@@ -1,55 +1,56 @@
-const path = require('path')
-const publicPath = require('react-scripts/config/paths').servedPath
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
 
 module.exports = async ({ config }) => {
-  const lintRules = config.module.rules.find(item => item.enforce === 'pre')
+  // Filter out some rules from create-react-app's webpack configuration.
+  const lintRule = config.module.rules.find(
+    item => '.js'.match(item.test) && item.enforce === 'pre',
+  )
+  const sassRule = config.module.rules.find(item => '.sass'.match(item.test))
+  const sassModuleRule = config.module.rules.find(
+    item => '.module.sass'.match(item.test) && !item.exclude,
+  )
+  const babelRule = config.module.rules.find(
+    item => item.loader && item.loader.includes('babel-loader'),
+  )
+
+  // Style files regexes
   const lessRegex = /\.less$/
   const lessModuleRegex = /\.module\.less$/
-  const localIdentName = '[path][name]__[local]--[hash:base64:5]'
 
-  lintRules.exclude = [/node_modules/]
+  // Common function to get less loader'use list by sassRule in CAR's webpack configuration.
+  const getLessUse = sassRule =>
+    sassRule.use
+      .filter(item => {
+        const loaderPath = typeof item === 'string' ? item : item.loader
+        return !loaderPath.includes('sass-loader')
+      })
+      .concat({
+        loader: require.resolve('less-loader'),
+        options: {
+          sourceMap: shouldUseSourceMap,
+          javascriptEnabled: true,
+        },
+      })
 
-  const sassRules = config.module.rules.find(item => '.sass'.match(item.test))
+  // 1. Exclude files in node_modules using eslint-loader.
+  lintRule.exclude = [/node_modules/]
 
-  const styleLoaders = sassRules.use.filter(item => {
-    const loaderPath = typeof item === 'string' ? item : item.loader
-    return loaderPath.indexOf('sass-loader') < 0
-  })
-
+  // 2. Adds support for LESS (using .less extensions).
   config.module.rules.push({
     test: lessRegex,
     exclude: lessModuleRegex,
-    use: styleLoaders.concat({
-      loader: require.resolve('less-loader'),
-      options: {
-        importLoaders: 2,
-        sourceMap: shouldUseSourceMap,
-        javascriptEnabled: true,
-      },
-    }),
+    use: getLessUse(sassRule),
     sideEffects: true,
   })
 
+  // 3. Adds support for CSS Modules, but using LESS (using .module.less extensions).
   config.module.rules.push({
     test: lessModuleRegex,
-    use: styleLoaders.concat({
-      loader: require.resolve('less-loader'),
-      options: {
-        importLoaders: 2,
-        sourceMap: shouldUseSourceMap,
-        modules: true,
-        localIdentName,
-        sourceMap: shouldUseSourceMap,
-        javascriptEnabled: true,
-      },
-    }),
+    use: getLessUse(sassModuleRule),
   })
 
-  const babelRule = config.module.rules.find(
-    item => item.loader && item.loader.indexOf('babel-loader') > -1,
-  )
-
+  // 4. Added bable plugin, such as babel-plugin-import.
+  // https://github.com/ant-design/babel-plugin-import
   babelRule.options.plugins.push([
     require.resolve('babel-plugin-import'),
     { libraryName: 'antd', style: true },

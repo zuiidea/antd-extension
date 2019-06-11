@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withConsole } from '@storybook/addon-console'
 
 import FormPro from '../FormPro'
+import * as styles from './FormPro.module.less'
 
 const columns = [
   { type: 'Input', name: 'name' },
@@ -31,7 +32,7 @@ const columns = [
 storiesOf('FormPro', module)
   .addDecorator((storyFn: any, context: any) => withConsole()(storyFn)(context))
   .add('Standard FormPro', () => (
-    <div style={{ padding: 30 }}>
+    <div className={styles.container}>
       <FormPro
         columns={columns}
         formProps={{

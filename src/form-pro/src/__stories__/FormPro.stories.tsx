@@ -4,25 +4,67 @@ import { withConsole } from '@storybook/addon-console'
 
 import FormPro from '../FormPro'
 import * as styles from './FormPro.module.less'
+import '../style/'
 
 const columns = [
-  { type: 'Input', name: 'name' },
+  {
+    type: 'Input',
+    name: 'Input',
+    label: 'Input',
+    required: true,
+    formItemProps: {
+      placeholder: 'Please input your name',
+    },
+  },
   {
     type: 'Switch',
-    name: 'isMale',
+    name: 'Switch',
+    label: 'Switch',
+    required: true,
   },
   {
     type: 'Select',
-    name: 'hobby',
+    name: 'Select',
+    label: 'Select',
+    required: true,
+    formItemProps: {
+      placeholder: 'Please select a country',
+    },
     extraProps: {
       dataSource: [
         {
-          key: 'book',
-          value: 'book',
+          key: 'china',
+          value: 'China',
         },
         {
-          key: 'music',
-          value: 'music',
+          key: 'usa',
+          value: 'U.S.A',
+        },
+      ],
+    },
+  },
+  {
+    type: 'Select',
+    name: 'SelectMultiple',
+    label: 'Select[multiple]',
+    required: true,
+    formItemProps: {
+      placeholder: 'Please select your favourite colors',
+      mode: 'multiple',
+    },
+    extraProps: {
+      dataSource: [
+        {
+          key: 'Red',
+          value: 'Red',
+        },
+        {
+          key: 'Green',
+          value: 'Green',
+        },
+        {
+          key: 'Blue',
+          value: 'Blue',
         },
       ],
     },
@@ -36,7 +78,11 @@ storiesOf('FormPro', module)
       <FormPro
         columns={columns}
         formProps={{
-          layout: 'vertical',
+          labelCol: { span: 6 },
+          wrapperCol: { span: 14 },
+        }}
+        onChange={(values, changedValues) => {
+          console.log(values, changedValues)
         }}
       />
     </div>

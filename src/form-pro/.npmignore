@@ -1,4 +1,5 @@
 src
+.babelrc.js
 setupTests.js
 react-app-env.d.ts
 tsconfig.settings.json

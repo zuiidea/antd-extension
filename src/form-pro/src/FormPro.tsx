@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Cascader from 'antd/lib/cascader'
 import DatePicker from 'antd/lib/date-picker'
 import Input from 'antd/lib/input'
 import Mentions from 'antd/lib/mentions'
@@ -13,7 +14,10 @@ export interface IDataSourceItem {
   label: string
 }
 
-const generateFormItemRender = (FormItem, FormItemOption) => {
+const generateFormItemRender = (
+  FormItem: React.ComponentType<any>,
+  FormItemOption: React.ComponentType<any>,
+) => {
   return (itemOptions: any) => {
     const { extraProps = {} } = itemOptions
     const { dataSource = [], optionProps = {} } = extraProps
@@ -45,7 +49,7 @@ export const defaultOptions = [
   },
   {
     type: 'Cascader',
-    component: lazy(() => import('antd/lib/cascader')),
+    component: Cascader,
   },
   {
     type: 'DatePicker',

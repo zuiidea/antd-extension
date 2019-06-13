@@ -1,6 +1,6 @@
 {
   "name": "form-pro",
-  "version": "0.0.3",
+  "version": "0.0.4-alpha.0",
   "description": "Expansion Ant Desgin From Component",
   "main": "lib/index.js",
   "module": "es/index.js",

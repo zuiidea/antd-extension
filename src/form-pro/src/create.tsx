@@ -23,7 +23,7 @@ export interface IFormProBaseProps {
 
 export interface ICreateFormProItemProps {
   type: string
-  component: any
+  component?: any
   formItemRender?: (itemOptions: any, Component: any) => JSX.Element
 }
 

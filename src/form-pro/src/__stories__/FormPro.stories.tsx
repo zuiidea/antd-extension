@@ -181,7 +181,7 @@ storiesOf('FormPro', module)
           labelCol: { span: 6 },
           wrapperCol: { span: 14 },
         }}
-        onChange={(values, changedValues) => {
+        onChange={(values: any, changedValues: any) => {
           console.log(values, changedValues)
         }}
       />

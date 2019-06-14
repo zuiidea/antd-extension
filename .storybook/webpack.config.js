@@ -56,5 +56,17 @@ module.exports = async ({ config }) => {
     { libraryName: 'antd', style: true },
   ])
 
+  // 5. Added storybook addon addon-storysource.
+  config.module.rules.push({
+    test: /\.stories\.tsx?$/,
+    loaders: [
+      {
+        loader: require.resolve('@storybook/addon-storysource/loader'),
+        options: { parser: 'typescript' },
+      },
+    ],
+    enforce: 'pre',
+  })
+
   return config
 }

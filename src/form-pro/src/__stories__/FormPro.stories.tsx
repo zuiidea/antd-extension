@@ -1,10 +1,12 @@
+/* eslint-disable */
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { withConsole } from '@storybook/addon-console'
 import { Button, Icon } from 'antd'
+import { storiesOf, addDecorator } from '@storybook/react'
+import { withConsole } from '@storybook/addon-console'
+import { withKnobs, object, array } from '@storybook/addon-knobs'
+import * as styles from './FormPro.module.less'
 import { countryList, colorList, cityList, fruitList, treeData } from './data'
 import FormPro from '../FormPro'
-import * as styles from './FormPro.module.less'
 import '../style/'
 
 const columns = [
@@ -167,23 +169,38 @@ const columns = [
   // tslint:disable-next-line:ter-arrow-parens
 ].map(item => {
   item.label = item.label || item.type
-  item.name = item.label || item.type
+  item.name = item.name || item.type
   return item
 })
 
 storiesOf('FormPro', module)
+  .addDecorator(withKnobs)
   .addDecorator((storyFn: any, context: any) => withConsole()(storyFn)(context))
-  .add('Standard FormPro', () => (
-    <div className={styles.container}>
-      <FormPro
-        columns={columns}
-        formProps={{
-          labelCol: { span: 6 },
-          wrapperCol: { span: 14 },
-        }}
-        onChange={(values: any, changedValues: any) => {
-          console.log(values, changedValues)
-        }}
-      />
-    </div>
-  ))
+  .add('Standard FormPro', () => {
+    const formProps = object(
+      'formProps',
+      {
+        labelCol: { span: 6 },
+        wrapperCol: { span: 14 },
+      },
+      'formProps',
+    )
+
+    return (
+      <div className={styles.container}>
+        <FormPro
+          // tslint:disable-next-line:ter-arrow-parens
+          columns={columns.map(item => {
+            if (item.type === 'Upload' || item.type === 'UploadDragger') {
+              return item
+            }
+            return object(item.name, item, 'columns')
+          })}
+          formProps={formProps}
+          onChange={(values: any, changedValues: any) => {
+            console.log(values, changedValues)
+          }}
+        />
+      </div>
+    )
+  })

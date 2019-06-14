@@ -6,4 +6,4 @@ script:
 before_install:
   - yarn global add now
 after_script:
-  - now build -A ../now.json -t $NOW_TOKEN
+  - now build -A now.json -t $NOW_TOKEN

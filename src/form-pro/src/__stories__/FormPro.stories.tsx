@@ -1,9 +1,9 @@
 /* eslint-disable */
 import * as React from 'react'
 import { Button, Icon } from 'antd'
-import { storiesOf, addDecorator } from '@storybook/react'
+import { storiesOf } from '@storybook/react'
 import { withConsole } from '@storybook/addon-console'
-import { withKnobs, object, array } from '@storybook/addon-knobs'
+import { withKnobs, object } from '@storybook/addon-knobs'
 import * as styles from './FormPro.module.less'
 import { countryList, colorList, cityList, fruitList, treeData } from './data'
 import FormPro from '../FormPro'

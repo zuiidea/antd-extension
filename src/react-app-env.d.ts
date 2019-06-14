@@ -1,5 +1,10 @@
 /// <reference types="react-scripts" />
 
+declare module '@storybook/addon-knobs' {
+  export const withKnobs: function
+  export const object: function
+}
+
 declare module '@storybook/addon-console' {
   export const withConsole: function
 }

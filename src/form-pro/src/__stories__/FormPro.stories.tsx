@@ -190,12 +190,15 @@ storiesOf('FormPro', module)
       <div className={styles.container}>
         <FormPro
           // tslint:disable-next-line:ter-arrow-parens
-          columns={columns.map(item => {
-            if (item.type === 'Upload' || item.type === 'UploadDragger') {
-              return item
-            }
-            return object(item.name, item, 'columns')
-          })}
+          columns={[
+            <div className={styles.title}>代码演示</div>,
+            ...columns.map(item => {
+              if (item.type === 'Upload' || item.type === 'UploadDragger') {
+                return item
+              }
+              return object(item.name, item, 'columns')
+            }),
+          ]}
           formProps={formProps}
           onChange={(values: any, changedValues: any) => {
             console.log(values, changedValues)

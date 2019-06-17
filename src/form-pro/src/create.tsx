@@ -37,7 +37,11 @@ const create = (
     IFormProBaseProps,
     IFormProBaseState
   > {
-    renderFormItem = (item: IColumn, index: number) => {
+    renderFormItem = (item: IColumn | React.ReactNode, index: number) => {
+      if (React.isValidElement(item)) {
+        return item
+      }
+
       const { getFieldDecorator } = this.props.form
       const {
         type,

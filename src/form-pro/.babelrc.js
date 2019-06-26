@@ -9,7 +9,7 @@ module.exports = function(api) {
         },
       ],
 
-      ['react-app', { flow: false, typescript: true }],
+      ['react-app', { flow: false, typescript: true, absoluteRuntime: false }],
     ],
 
     plugins: [['babel-plugin-import', { libraryName: 'antd', style: true }]],

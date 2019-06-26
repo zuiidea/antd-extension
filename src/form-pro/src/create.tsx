@@ -1,24 +1,34 @@
 import * as React from 'react'
+import 'antd/es/button/style'
 import 'antd/es/form/style'
 import Form, { FormItemProps, FormCreateOption, FormProps } from 'antd/es/form'
 import { GetFieldDecoratorOptions } from 'antd/es/form/Form'
+import Button from 'antd/es/button'
 
 const FormItem = Form.Item
-const { PureComponent, Suspense } = React
+const { PureComponent, Suspense, Fragment } = React
 
-export interface IColumn extends FormItemProps {
+export interface IColumnBase extends FormItemProps {
   type: string
   name?: string
   options?: GetFieldDecoratorOptions
-  extraProps?: any
+  extraProps?: {
+    [propName: string]: any
+  }
   formItemProps?: object
 }
 
+export type IColumn = IColumnBase | React.ReactNode
 export interface IFormProBaseProps {
   columns: IColumn[]
   formProps?: FormProps
   form: any
   onChange?: any
+  onSubmit?: any
+  showSubmit?: boolean
+  submitText: React.ReactNode
+  wrappedComponentRef: any
+  footer?: React.ReactNode
 }
 
 export interface ICreateFormProItemProps {
@@ -37,9 +47,21 @@ const create = (
     IFormProBaseProps,
     IFormProBaseState
   > {
-    renderFormItem = (item: IColumn | React.ReactNode, index: number) => {
-      if (React.isValidElement(item)) {
-        return item
+    static get defaultProps() {
+      return {
+        showSubmit: true,
+      }
+    }
+
+    isColumn = (
+      element: IColumnBase | React.ReactNode,
+    ): element is IColumnBase => {
+      return !React.isValidElement(element)
+    }
+
+    renderFormItem = (item: IColumnBase | React.ReactNode, index: number) => {
+      if (!this.isColumn(item)) {
+        return <Fragment key={index}>{item}</Fragment>
       }
 
       const { getFieldDecorator } = this.props.form
@@ -79,9 +101,59 @@ const create = (
       )
     }
 
+    renderFooter = () => {
+      const {
+        submitText = 'Submit',
+        showSubmit,
+        formProps,
+        footer,
+      } = this.props
+      if (footer) {
+        return footer
+      }
+
+      if (!showSubmit) {
+        return null
+      }
+
+      return (
+        <Form.Item
+          colon={false}
+          label={<Fragment></Fragment>}
+          labelCol={formProps!.labelCol}
+          wrapperCol={formProps!.wrapperCol}
+        >
+          <Button onClick={this.handleSubmit} type="primary">
+            {submitText}
+          </Button>
+        </Form.Item>
+      )
+    }
+
+    handleSubmit = () => {
+      const { onSubmit, form } = this.props
+      const { validateFieldsAndScroll } = form
+
+      validateFieldsAndScroll((err: any, values: any) => {
+        if (!err) {
+          onSubmit && onSubmit(values)
+        }
+      })
+    }
+
+    submit = this.props.form.validateFieldsAndScroll
+
+    reset = this.props.form.resetFields
+
     render() {
       const { columns, formProps } = this.props
-      return <Form {...formProps}>{columns.map(this.renderFormItem)}</Form>
+
+      return (
+        <Form {...formProps}>
+          {columns.map(this.renderFormItem)}
+          {this.renderFooter()}
+        </Form>
+      )
     }
   }
 

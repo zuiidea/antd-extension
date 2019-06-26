@@ -65,7 +65,6 @@ module.exports = async ({ config }) => {
         options: { parser: 'typescript' },
       },
     ],
-    enforce: 'pre',
   })
 
   return config

@@ -1,13 +1,12 @@
 /* eslint-disable */
-import * as React from 'react'
-import { Button, Icon, Modal } from 'antd'
-import { storiesOf } from '@storybook/react'
 import { withConsole } from '@storybook/addon-console'
-import { countryList, colorList, cityList, fruitList, treeData } from './data'
+import { storiesOf } from '@storybook/react'
+import { Button, Icon, Modal } from 'antd'
+import * as React from 'react'
 import FormPro from '../FormPro'
 import '../style/'
 
-const { useState, useEffect, Fragment, PureComponent } = React
+const { Fragment, PureComponent } = React
 
 const columns = [
   {
@@ -46,16 +45,24 @@ const columns = [
   },
 ]
 
-class WithModal extends PureComponent {
-  constructor(props) {
+interface IWithModalProps {}
+
+interface IWithModalState {
+  visible: boolean
+}
+
+class WithModal extends PureComponent<IWithModalProps, IWithModalState> {
+  formPro: any
+
+  constructor(props: IWithModalProps) {
     super(props)
     this.state = {
-      visble: true,
+      visible: true,
     }
   }
 
   handleSubmit = () => {
-    this.formPro.submit((errors, values) => {
+    this.formPro.submit((errors: any, values: any) => {
       console.log(errors, values)
     })
   }

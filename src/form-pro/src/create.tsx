@@ -8,13 +8,14 @@ import Button from 'antd/es/button'
 const FormItem = Form.Item
 const { PureComponent, Suspense, Fragment } = React
 
+export interface IAnyObject {
+  [propName: string]: any
+}
 export interface IColumnBase extends FormItemProps {
   type: string
   name?: string
   options?: GetFieldDecoratorOptions
-  extraProps?: {
-    [propName: string]: any
-  }
+  extraProps?: IAnyObject
   formItemProps?: object
 }
 

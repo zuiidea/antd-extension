@@ -8,7 +8,6 @@ import Select from 'antd/lib/select'
 import create from './create'
 
 const { lazy } = React
-
 export interface IDataSourceItem {
   value: string
   label: string

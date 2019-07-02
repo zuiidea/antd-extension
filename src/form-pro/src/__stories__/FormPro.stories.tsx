@@ -190,7 +190,7 @@ storiesOf('FormPro', module)
       <div className={styles.container}>
         <FormPro
           columns={[
-            <div className={styles.title}>代码演示</div>,
+            <div className={styles.title}>Examples</div>,
             // tslint:disable-next-line:ter-arrow-parens
             ...columns.map(item => {
               if (item.type === 'Upload' || item.type === 'UploadDragger') {

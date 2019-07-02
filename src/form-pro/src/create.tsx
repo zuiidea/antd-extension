@@ -12,7 +12,8 @@ export interface IAnyObject {
   [propName: string]: any
 }
 export interface IColumnBase extends FormItemProps {
-  type: string
+  type?: string
+  render?: any
   name?: string
   options?: GetFieldDecoratorOptions
   extraProps?: IAnyObject
@@ -33,7 +34,7 @@ export interface IFormProBaseProps {
 }
 
 export interface ICreateFormProItemProps {
-  type: string
+  type?: string
   component?: any
   formItemRender?: (itemOptions: any, Component: any) => JSX.Element
 }
@@ -69,6 +70,7 @@ const create = (
       const {
         type,
         name,
+        render,
         extraProps = {},
         formItemProps = {},
         ...restProps
@@ -76,20 +78,27 @@ const create = (
 
       const { addonBefore, addonAfter } = extraProps
       const itemOptions = options.find(_ => type === _.type)
-      if (!itemOptions) {
-        return null
-      }
 
-      const { formItemRender } = itemOptions
-      const FormItemComponent = itemOptions.component
-      const formItemContent = formItemRender ? (
-        React.cloneElement(
-          formItemRender(item, FormItemComponent),
-          formItemProps,
+      let formItemContent
+
+      if (render) {
+        // customized form controls
+        formItemContent = React.cloneElement(render, formItemProps)
+      } else if (itemOptions) {
+        // built-in form controls
+        const { formItemRender } = itemOptions
+        const FormItemComponent = itemOptions.component
+        formItemContent = formItemRender ? (
+          React.cloneElement(
+            formItemRender(item, FormItemComponent),
+            formItemProps,
+          )
+        ) : (
+          <FormItemComponent {...formItemProps} />
         )
-      ) : (
-        <FormItemComponent {...formItemProps} />
-      )
+      } else {
+        return
+      }
 
       return (
         <FormItem key={index} {...restProps}>

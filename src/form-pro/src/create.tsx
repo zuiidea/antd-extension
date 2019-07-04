@@ -129,7 +129,7 @@ const create = (
       return (
         <Form.Item
           colon={false}
-          label={<Fragment></Fragment>}
+          label={<Fragment />}
           labelCol={formProps!.labelCol}
           wrapperCol={formProps!.wrapperCol}
         >

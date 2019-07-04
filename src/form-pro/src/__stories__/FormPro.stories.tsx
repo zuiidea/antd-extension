@@ -1,9 +1,6 @@
-/* eslint-disable */
 import * as React from 'react'
 import { Button, Icon } from 'antd'
-import { storiesOf } from '@storybook/react'
-import { withConsole } from '@storybook/addon-console'
-import { withKnobs, object } from '@storybook/addon-knobs'
+import { object } from '@storybook/addon-knobs'
 import * as styles from './FormPro.module.less'
 import { countryList, colorList, cityList, fruitList, treeData } from './data'
 import FormPro from '../FormPro'
@@ -173,40 +170,39 @@ const columns = [
   return item
 })
 
-storiesOf('FormPro', module)
-  .addDecorator(withKnobs)
-  .addDecorator((storyFn: any, context: any) => withConsole()(storyFn)(context))
-  .add('Standard FormPro', () => {
-    const formProps = object(
-      'formProps',
-      {
-        labelCol: { span: 6 },
-        wrapperCol: { span: 14 },
-      },
-      'formProps',
-    )
+const StandardFormPro = () => {
+  const formProps = object(
+    'formProps',
+    {
+      labelCol: { span: 6 },
+      wrapperCol: { span: 14 },
+    },
+    'formProps',
+  )
 
-    return (
-      <div className={styles.container}>
-        <FormPro
-          columns={[
-            <div className={styles.title}>Examples</div>,
-            // tslint:disable-next-line:ter-arrow-parens
-            ...columns.map(item => {
-              if (item.type === 'Upload' || item.type === 'UploadDragger') {
-                return item
-              }
-              return object(item.name, item, 'columns')
-            }),
-          ]}
-          formProps={formProps}
-          onChange={(values: any, changedValues: any) => {
-            console.log(values, changedValues)
-          }}
-          onSubmit={(values: any) => {
-            console.log(values)
-          }}
-        />
-      </div>
-    )
-  })
+  return (
+    <div className={styles.container}>
+      <FormPro
+        columns={[
+          <div className={styles.title}>Examples</div>,
+          // tslint:disable-next-line:ter-arrow-parens
+          ...columns.map(item => {
+            if (item.type === 'Upload' || item.type === 'UploadDragger') {
+              return item
+            }
+            return object(item.name, item, 'columns')
+          }),
+        ]}
+        formProps={formProps}
+        onChange={(values: any, changedValues: any) => {
+          console.log(values, changedValues)
+        }}
+        onSubmit={(values: any) => {
+          console.log(values)
+        }}
+      />
+    </div>
+  )
+}
+
+export default StandardFormPro

@@ -1,9 +1,7 @@
-/* eslint-disable */
-import { withConsole } from '@storybook/addon-console'
-import { storiesOf } from '@storybook/react'
 import { Button, Icon, Modal } from 'antd'
 import * as React from 'react'
 import FormPro from '../FormPro'
+import * as styles from './FormPro.module.less'
 import '../style/'
 
 const { Fragment, PureComponent } = React
@@ -51,13 +49,16 @@ interface IWithModalState {
   visible: boolean
 }
 
-class WithModal extends PureComponent<IWithModalProps, IWithModalState> {
+export default class WithModal extends PureComponent<
+  IWithModalProps,
+  IWithModalState
+> {
   formPro: any
 
   constructor(props: IWithModalProps) {
     super(props)
     this.state = {
-      visible: true,
+      visible: false,
     }
   }
 
@@ -74,17 +75,20 @@ class WithModal extends PureComponent<IWithModalProps, IWithModalState> {
 
     return (
       <Fragment>
-        <Button
-          style={{ margin: 32 }}
-          type="primary"
-          onClick={() => {
-            this.setState({
-              visible: true,
-            })
-          }}
-        >
-          Open Login Modal
-        </Button>
+        <div className={styles.container}>
+          <div className={styles.title}>Examples</div>
+          <Button
+            type="primary"
+            onClick={() => {
+              this.setState({
+                visible: true,
+              })
+            }}
+          >
+            Open Login Modal
+          </Button>
+        </div>
+
         <Modal
           visible={this.state.visible}
           centered
@@ -109,7 +113,3 @@ class WithModal extends PureComponent<IWithModalProps, IWithModalState> {
     )
   }
 }
-
-storiesOf('FormPro', module)
-  .addDecorator((storyFn: any, context: any) => withConsole()(storyFn)(context))
-  .add('With Modal', () => <WithModal />)

@@ -1,6 +1,3 @@
-/* eslint-disable */
-import { withConsole } from '@storybook/addon-console'
-import { storiesOf } from '@storybook/react'
 import { Input, Select } from 'antd'
 import * as React from 'react'
 import * as styles from './FormPro.module.less'
@@ -115,6 +112,4 @@ class CustomizedFormControls extends PureComponent<any, any> {
   }
 }
 
-storiesOf('FormPro', module)
-  .addDecorator((storyFn: any, context: any) => withConsole()(storyFn)(context))
-  .add('Customized Form Controls', () => <CustomizedFormControls />)
+export default CustomizedFormControls

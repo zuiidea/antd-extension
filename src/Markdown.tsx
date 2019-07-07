@@ -8,7 +8,7 @@ interface MarkdownProps {
 const Markdown: React.FC<MarkdownProps> = ({ source }) => {
   return (
     <div style={{ padding: 24 }}>
-      <ReactMarkdown source={source} />
+      <ReactMarkdown escapeHtml={false} source={source} />
     </div>
   )
 }

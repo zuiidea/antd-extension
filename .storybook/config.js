@@ -5,7 +5,9 @@ import { themes } from '@storybook/theming'
 setOptions({
   name: 'Antd Extension',
   showNav: true,
-  showPanel: true,
+  showPanel: false,
+  showAddonPanel: false,
+  isToolshown: false,
 })
 
 const req = require.context('../src', true, /.stories.tsx$/)

@@ -6,4 +6,4 @@ import License from '../LICENSE.md'
 
 storiesOf('Antd Extension|Welcome', module)
   .add('Getting Started', () => <Markdown source={ReadMe} />)
-  .add('License', () => <pre style={{ padding: 24 }}>{License}</pre>)
+  .add('License', () => <pre>{License}</pre>)

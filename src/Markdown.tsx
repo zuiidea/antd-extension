@@ -6,9 +6,9 @@ interface MarkdownProps {
   source?: string
 }
 
-const Markdown: React.FC<MarkdownProps> = ({ source }) => {
+const Markdown: React.FC<MarkdownProps> = ({ source, api }) => {
   return (
-    <div className="markdown">
+    <div className={`markdown ${api ? 'api-container' : ''}`}>
       <ReactMarkdown escapeHtml={false} source={source} />
     </div>
   )

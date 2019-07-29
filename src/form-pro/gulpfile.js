@@ -1,13 +1,14 @@
 const gulp = require('gulp')
-const concat = require('gulp-concat')
-const cleanCSS = require('gulp-clean-css')
-const cssFile = require('./src/style/index.json')
+const less = require('gulp-less')
 
-gulp.task('css', function() {
+gulp.task('less', function() {
   return gulp
-    .src(cssFile.map(_ => `../../node_modules/${_}`))
-    .pipe(concat('index.css'))
-    .pipe(cleanCSS())
+    .src('./src/style/index.less')
+    .pipe(
+      less({
+        javascriptEnabled: true,
+      }),
+    )
     .pipe(gulp.dest('./lib/style/'))
     .pipe(gulp.dest('./lib/style/'))
 })

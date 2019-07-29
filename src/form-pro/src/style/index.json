@@ -1,0 +1,17 @@
+[
+  "antd/lib/auto-complete/style/index.css",
+  "antd/lib/checkbox/style/index.css",
+  "antd/lib/date-picker/style/index.css",
+  "antd/lib/cascader/style/index.css",
+  "antd/lib/input/style/index.css",
+  "antd/lib/input-number/style/index.css",
+  "antd/lib/switch/style/index.css",
+  "antd/lib/select/style/index.css",
+  "antd/lib/slider/style/index.css",
+  "antd/lib/mentions/style/index.css",
+  "antd/lib/rate/style/index.css",
+  "antd/lib/radio/style/index.css",
+  "antd/lib/tree-select/style/index.css",
+  "antd/lib/time-picker/style/index.css",
+  "antd/lib/upload/style/index.css"
+]

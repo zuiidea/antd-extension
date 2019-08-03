@@ -69,7 +69,7 @@ import FormPro from "form-pro"
 ### FormPro
 
 | 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | columns | 表单控件的配置描述，具体项见下表 | ColumnProps [] | - |
 | formProps | 与 [Ant Design Form](https://ant.design/components/form-cn/#Form) 配置项保持一致 | FormProps | -   |
 | onChange | 表单值发生变化时触发 | (allValues, changedValues) => void |  -  | 
@@ -84,7 +84,7 @@ import FormPro from "form-pro"
 表单控件配置数据对象，是 columns 中的一项，Column 使用相同的 API。
 
 | 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | type | 表单控件类型 | string | - |
 | render | 自定义表单控件，与 `type` 字段同时存在时，优先使用 `render` | React.ReactNode | - |
 | name | 表单域内字段名称 | string | - |
@@ -99,7 +99,7 @@ import FormPro from "form-pro"
 使用 `FormPro.create`函数可以创建一个新的 `FormPro` 组件，新的 `FormPro` 组件内置 `type` 将由 `options` 决定。
 
 | 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | type | 表单控件类型 | string | - |
 | component | 表单控件对应的组件 | any | - |
 | formItemRender | 自定义渲染FormItem |  (itemOptions: any, Component: any) => JSX.Element | - |

@@ -4,7 +4,7 @@
   </a>
 </p>
 
-English | [简体中文](./README-zh_CN.md)
+English | [简体中文](./README.zh_CN.md)
 
 ## FormPro
 
@@ -69,7 +69,7 @@ import FormPro from "form-pro"
 ### FormPro
 
 | Property | Description | Type | Default | 
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | columns | Columns of table | ColumnProps [] | - |
 | formProps | Consistent with the Ant Design [Form] (https://ant.design/components/form-cn/#Form) configuration | FormProps | -   |
 | onChange | Triggered when the form value changes | (allValues, changedValues) => void |  -  | 
@@ -84,7 +84,7 @@ import FormPro from "form-pro"
 Form control configuration data object, which is an item in columns, Column uses the same API.
 
 | Property | Description | Type | Default | 
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | type | Form control type | string | - |
 | render | Custom form controls, when used with the `type` field, use `render` first. | React.ReactNode | - |
 | name | Field name within the form field | string | - |
@@ -98,7 +98,7 @@ Form control configuration data object, which is an item in columns, Column uses
 Use the `FormPro.create` function to create a new `FormPro` component. The new `FormPro` component built in `type` will be determined by `options`.
 
 | Property | Description | Type | Default | 
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | type | Form control type | string | - |
 | component | The component corresponding to the form control | any | - |
 | formItemRender | Custom rendering of FormItem |  (itemOptions: any, Component: any) => JSX.Element | - |

@@ -1,4 +1,4 @@
-English | [简体中文](./README-zh_CN.md)
+English | [简体中文](./README.zh-CN.md)
 
 # Ant Design Extension
 
@@ -15,7 +15,7 @@ English | [简体中文](./README-zh_CN.md)
 
 | Component Name | Package Name | Description                                       |
 | -------------- | ------------ | ------------------------------------------------- |
-| [FormPro](https://form-pro.now.sh/?path=/story/components-formpro--read-me)        | `form-pro`   | Configurable on-demand loading of form components |
+| [FormPro](./src/form-pro/README.md)        | `form-pro`   | Configurable on-demand loading of form components |
 
 ## Installation
 

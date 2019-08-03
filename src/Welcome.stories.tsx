@@ -11,6 +11,9 @@ storiesOf('Antd Extension|Welcome', module)
       source={ReadMe.replace(
         '(./README-zh_CN.md)',
         '(/?path=/story/antd-extension-welcome--getting-started-zh-cn)',
+      ).replace(
+        '(./src/form-pro/README.md)',
+        '(/?path=/story/components-formpro--read-me)',
       )}
     />
   ))
@@ -19,6 +22,9 @@ storiesOf('Antd Extension|Welcome', module)
       source={ReadMeZHCN.replace(
         '(./README.md)',
         '(/?path=/story/antd-extension-welcome--getting-started)',
+      ).replace(
+        '(./src/form-pro/README.zh-CN.md)',
+        '(/?path=/story/components-formpro--read-me-zh-cn)',
       )}
     />
   ))

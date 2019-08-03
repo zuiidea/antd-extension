@@ -15,7 +15,7 @@
 
 | 名称    | 独立包名   | 描述                     |
 | ------- | ---------- | ------------------------ |
-| [FormPro](https://form-pro.now.sh/?path=/story/antd-extension-welcome--getting-started-zh-cn)  | `form-pro` | 配置式的按需加载表单组件 |
+| [FormPro](./src/form-pro/README.zh-CN.md)  | `form-pro` | 配置式的按需加载表单组件 |
 
 ## 安装
 

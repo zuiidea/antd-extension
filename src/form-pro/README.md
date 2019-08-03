@@ -60,6 +60,9 @@ import FormPro from "form-pro"
 - [With Modal](https://form-pro.now.sh/?path=/?path=/story/components-formpro--with-modal) 
 - [Customized Form Controls](https://form-pro.now.sh/?path=/story/components-formpro--customized-form-controls) 
 
+### Environment Support
+
+- React version is greater than 16.6.
 
 ## API
 

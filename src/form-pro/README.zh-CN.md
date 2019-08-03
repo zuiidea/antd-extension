@@ -23,6 +23,7 @@
 | showSubmit | 是否展示提交按钮 | boolean |  `true`  | 
 | submitText | 提交按钮文字 | React.ReactNode |  `Submit`  | 
 | footer | 表单底部内容 | React.ReactNode |  -  | 
+| loading | 所有表单控件加载时Loading | React.ReactNode |  -  | 
 
 ### Column
 
@@ -36,6 +37,7 @@
 | options | 与 getFieldDecorator(id, options) 的 [options](https://ant.design/components/form-cn/#getFieldDecorator(id,-options)-%E5%8F%82%E6%95%B0) 参数保持一致 | object | - |
 | extraProps | 表单控件的额外自定义参数，不同控件参数不同，与 `type` 对应 | object | - |
 | formItemProps | 表单控件的参数，不同控件参数不同，与 `type` 对应 | object  | - |
+| loading | 当前表单控件加载时Loading | React.ReactNode |  -  | 
 
 
 ### FormPro.create(options)

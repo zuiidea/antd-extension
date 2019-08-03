@@ -4,6 +4,7 @@ import './Markdown.less'
 
 interface MarkdownProps {
   source?: string
+  api?: boolean
 }
 
 const Markdown: React.FC<MarkdownProps> = ({ source, api }) => {

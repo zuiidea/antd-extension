@@ -23,6 +23,7 @@ Can completely replace Ant Design's [Form](https://ant.design/components/form/#F
 | showSubmit | Whether to show the submit button | boolean |  `true`  | 
 | submitText | Submit button text | React.ReactNode |  `Submit`  | 
 | footer | Bottom of the form | React.ReactNode |  -  | 
+| loading | Loading when all form controls are loaded | React.ReactNode |  -  | 
 
 ### Column
 
@@ -36,7 +37,7 @@ Form control configuration data object, which is an item in columns, Column uses
 | options | Consistent with the [options](https://ant.design/components/form/#getFieldDecorator(id,-options)-parameters) parameter of getFieldDecorator(id, options) | object | - |
 | extraProps | Additional custom parameters for form controls, different control parameters, corresponding to `type` | object | - |
 | formItemProps | The parameters of the form control, different control parameters, corresponding to `type` | object  | - |
-
+| loading | Loading when the current form control loads | React.ReactNode | - |
 
 ### FormPro.create(options)
 

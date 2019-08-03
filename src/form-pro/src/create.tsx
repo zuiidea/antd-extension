@@ -18,6 +18,7 @@ export interface IColumnBase extends FormItemProps {
   options?: GetFieldDecoratorOptions
   extraProps?: IAnyObject
   formItemProps?: object
+  loading?: React.ReactNode
 }
 
 export type IColumn = IColumnBase | React.ReactNode
@@ -31,6 +32,7 @@ export interface IFormProBaseProps {
   submitText: React.ReactNode
   wrappedComponentRef: any
   footer?: React.ReactNode
+  loading?: React.ReactNode
 }
 
 export interface ICreateFormProItemProps {
@@ -71,6 +73,7 @@ const create = (
         type,
         name,
         render,
+        loading,
         extraProps = {},
         formItemProps = {},
         ...restProps
@@ -103,7 +106,7 @@ const create = (
       return (
         <FormItem key={index} {...restProps}>
           {addonBefore}
-          <Suspense fallback={null}>
+          <Suspense fallback={loading || this.props.loading || null}>
             {getFieldDecorator(name, item.options)(formItemContent)}
           </Suspense>
           {addonAfter}

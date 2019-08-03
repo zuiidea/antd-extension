@@ -1,7 +1,7 @@
 {
   "name": "antd-extension",
   "version": 1,
-  "alias": ["form-pro.now.sh"],
+  "alias": ["form-pro.now.sh", "antd-extension.now.sh"],
   "type": "static",
   "public": true
 }

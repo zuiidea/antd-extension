@@ -10,8 +10,24 @@ import ReadMeZHCN from '../../README.zh-CN.md'
 
 storiesOf('COMPONENTS|FormPro', module)
   .addDecorator((storyFn: any, context: any) => withConsole()(storyFn)(context))
-  .add('Read Me', () => <Markdown api source={ReadMe} />)
-  .add('Read Me (zh-CN)', () => <Markdown api source={ReadMeZHCN} />)
+  .add('Read Me', () => (
+    <Markdown
+      api
+      source={ReadMe.replace(
+        '(./README-zh_CN.md)',
+        '(/?path=/story/components-formpro--read-me-zh-cn)',
+      )}
+    />
+  ))
+  .add('Read Me (zh-CN)', () => (
+    <Markdown
+      api
+      source={ReadMeZHCN.replace(
+        '(./README.md)',
+        '(/?path=/story/components-formpro--read-me)',
+      )}
+    />
+  ))
   .add('Standard FormPro', () => <StandardFormPro />)
   .add('With Modal', () => <WithModal />)
   .add('Customized Form Controls', () => <CustomizedFormControls />)

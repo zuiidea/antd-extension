@@ -1,3 +1,5 @@
+English | [简体中文](./README-zh_CN.md)
+
 ## FormPro
 
 - Generate forms with configuration, No need to use `import` cumbersome form controls.
@@ -5,9 +7,52 @@
 - Flexible design, support for custom, preset form controls.
 - Written in `TypeScript` with complete defined types.
 
+[Live demo](https://codesandbox.io/s/standard-formpro-18usg?fontsize=14)
+
 ## When To Use
 
 Can completely replace Ant Design's [Form](https://ant.design/components/form/#Form) component, dealing with complex forms, pop-up windows, etc.  
+
+## How To Use
+
+### Installation
+
+We recommend using npm or yarn to install.
+
+```bash
+$ npm install form-pro --save 
+# or
+$ yarn add form-pro --save
+```
+
+> If you are in a bad network environment, you can try other registries and tools like  [cnpm](https://github.com/cnpm/cnpm).
+
+### Usage
+
+```js
+import FormPro from "form-pro"
+
+<FormPro
+  columns={[
+    {
+      type: "Input",
+      name: "name"
+    },
+    {
+      type: "DatePicker",
+      name: "birthday"
+    }
+  ]}
+/>
+```
+
+### Examples
+
+- [Standard FormPro](https://form-pro.now.sh/?path=/story/components-formpro--standard-formpro) 
+  [![Edit Standard FormPro](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/standard-formpro-18usg?fontsize=14)
+
+- [With Modal](https://form-pro.now.sh/?path=/?path=/story/components-formpro--with-modal) 
+- [Customized Form Controls](https://form-pro.now.sh/?path=/story/components-formpro--customized-form-controls) 
 
 
 ## API

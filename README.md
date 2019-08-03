@@ -1,3 +1,5 @@
+English | [简体中文](./README-zh_CN.md)
+
 # Ant Design Extension
 
 `Ant Design Extension` is an extended set of components for [Ant Design](https://ant.design/docs/react/introduce-cn) that conforms to the `Ant Design` specification and has visually exposed UI components.
@@ -13,7 +15,7 @@
 
 | Component Name | Package Name | Description                                       |
 | -------------- | ------------ | ------------------------------------------------- |
-| FormPro        | `form-pro`   | Configurable on-demand loading of form components |
+| [FormPro](https://form-pro.now.sh/?path=/story/components-formpro--read-me)        | `form-pro`   | Configurable on-demand loading of form components |
 
 ## Installation
 
@@ -31,3 +33,8 @@ $ yarn add form-pro -S
 ```
 
 If you are in a bad network environment, you can try other registries and tools like [cnpm](https://github.com/cnpm/cnpm).
+
+
+## Document and examples
+
+[https://antd-extension.now.sh](https://antd-extension.now.sh)

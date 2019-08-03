@@ -1,3 +1,5 @@
+简体中文 | [English](./README.md)
+
 ## FormPro
 
 - 采用配置式生成表单，无需 `import` 繁琐的表单控件。
@@ -5,9 +7,52 @@
 - 设计灵活，支持自定义、预置表单控件。
 - 使用 `TypeScript` 构建，提供完整的类型定义文件。
 
+[在线演示](https://codesandbox.io/s/standard-formpro-18usg?fontsize=14)
+
 ## 何时使用
 
 可完全替代 `Ant Design` 的 [Form]((https://ant.design/components/form-cn/#Form)) 组件，可应对复杂表单，弹窗表单等场景。
+
+## 如何使用
+
+### 安装
+
+推荐使用 npm 或 yarn 的方式进行开发。
+
+```bash
+$ npm install form-pro --save 
+# 或者
+$ yarn add form-pro --save
+```
+
+> 如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
+
+### 使用
+
+```js
+import FormPro from "form-pro"
+
+<FormPro
+  columns={[
+    {
+      type: "Input",
+      name: "name"
+    },
+    {
+      type: "DatePicker",
+      name: "birthday"
+    }
+  ]}
+/>
+```
+
+### 例子
+
+- [Standard FormPro](https://form-pro.now.sh/?path=/story/components-formpro--standard-formpro) 
+  [![Edit Standard FormPro](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/standard-formpro-18usg?fontsize=14)
+
+- [With Modal](https://form-pro.now.sh/?path=/?path=/story/components-formpro--with-modal) 
+- [Customized Form Controls](https://form-pro.now.sh/?path=/story/components-formpro--customized-form-controls) 
 
 
 ## API

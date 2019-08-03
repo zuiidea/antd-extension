@@ -1,3 +1,9 @@
+<p align=center>
+  <a href="https://form-pro.now.sh/?path=/story/components-formpro--read-me">
+    <img width="160" src="https://image.zuiidea.com/Form-Pro__Logo.svg">
+  </a>
+</p>
+
 简体中文 | [English](./README.md)
 
 ## FormPro

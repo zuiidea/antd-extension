@@ -9,7 +9,7 @@ storiesOf('Antd Extension|Welcome', module)
   .add('Getting Started', () => (
     <Markdown
       source={ReadMe.replace(
-        '(./README-zh_CN.md)',
+        '(./README.zh-CN.md)',
         '(/?path=/story/antd-extension-welcome--getting-started-zh-cn)',
       ).replace(
         '(./src/form-pro/README.md)',

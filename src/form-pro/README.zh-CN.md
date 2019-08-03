@@ -116,3 +116,7 @@ const NewFormPro = create([{
 
 <NewFormPro columns={[type: 'Checkbox', name: 'checkbox']} />
 ```
+
+## Document and examples
+
+[https://form-pro.now.sh](https://form-pro.now.sh/?path=/story/components-formpro--read-me-zh-cn)

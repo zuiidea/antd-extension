@@ -4,7 +4,7 @@
   </a>
 </p>
 
-English | [简体中文](./README.zh_CN.md)
+English | [简体中文](./README.zh-CN.md)
 
 ## FormPro
 
@@ -115,3 +115,7 @@ const NewFormPro = create([{
 
 <NewFormPro columns={[type: 'Checkbox', name: 'checkbox']} />
 ```
+
+## Document and examples
+
+[https://form-pro.now.sh](https://form-pro.now.sh/?path=/story/components-formpro--read-me)

@@ -14,7 +14,7 @@ storiesOf('COMPONENTS|FormPro', module)
     <Markdown
       api
       source={ReadMe.replace(
-        '(./README-zh_CN.md)',
+        '(./README.zh-CN.md)',
         '(/?path=/story/components-formpro--read-me-zh-cn)',
       )}
     />

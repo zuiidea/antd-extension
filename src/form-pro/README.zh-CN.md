@@ -36,17 +36,20 @@ $ yarn add form-pro --save
 ### 使用
 
 ```js
-import FormPro from "form-pro"
+import FormPro from 'form-pro'
+import 'form-pro/lib/style'  // 如果项目支持 Less
+// 如果项目不支持 Less，请使用
+// import 'form-pro/lib/style/index.css'
 
 <FormPro
   columns={[
     {
-      type: "Input",
-      name: "name"
+      type: 'Input',
+      name: 'name'
     },
     {
-      type: "DatePicker",
-      name: "birthday"
+      type: 'DatePicker',
+      name: 'birthday'
     }
   ]}
 />

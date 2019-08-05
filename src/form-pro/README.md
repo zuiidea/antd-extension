@@ -36,17 +36,20 @@ $ yarn add form-pro --save
 ### Usage
 
 ```js
-import FormPro from "form-pro"
+import FormPro from 'form-pro'
+import 'form-pro/lib/style'  // If the development environment supports Less
+// If the development environment does not support Less, please use
+// import 'form-pro/lib/style/index.css'
 
 <FormPro
   columns={[
     {
-      type: "Input",
-      name: "name"
+      type: 'Input',
+      name: 'name'
     },
     {
-      type: "DatePicker",
-      name: "birthday"
+      type: 'DatePicker',
+      name: 'birthday'
     }
   ]}
 />
@@ -71,7 +74,7 @@ import FormPro from "form-pro"
 | Property | Description | Type | Default | 
 | --- | --- | --- | --- |
 | columns | Columns of table | ColumnProps [] | - |
-| formProps | Consistent with the Ant Design [Form] (https://ant.design/components/form-cn/#Form) configuration | FormProps | -   |
+| formProps | Consistent with the Ant Design [Form](https://ant.design/components/form-cn/#Form) configuration | FormProps | -   |
 | onChange | Triggered when the form value changes | (allValues, changedValues) => void |  -  | 
 | onSubmit | Triggered when the submit button is clicked | (values) => void |  -  | 
 | showSubmit | Whether to show the submit button | boolean |  `true`  | 

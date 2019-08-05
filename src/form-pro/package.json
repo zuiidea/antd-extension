@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "author": "zuiidea",
+  "keywords": ["Form Pro", "Form Extension", "Ant Design", "Ant Design Extension", "Configurable", "React lazy", "Load on demand"],
   "dependencies": {
     "antd": "^3.19.2",
     "react": "^16.8.6",
